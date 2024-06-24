@@ -136,7 +136,9 @@ class VirtualMachine:
                 user_id
             )
             if row:
-                return VirtualMachine(row['ram'], row['cpu_count'], row['user_id'], row['vm_id'])
+                vm = VirtualMachine(row['ram'], row['cpu_count'], row['user_id'], row['vm_id'])
+                await vm.load_disks()
+                return vm
         finally:
             await conn.close()
 

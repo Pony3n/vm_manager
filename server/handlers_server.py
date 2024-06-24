@@ -34,7 +34,7 @@ async def command_loop(server):
                         print("  No disks attached")
             else:
                 print("Нет зарегистрированных виртуальных машин")
-        elif command == 'list_logged_in_vms':
+        elif command == 'get_logged_vms':
             vms = await get_logged_in_vms()
             if vms:
                 for vm in vms:
